@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om - Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+body{
+    background-color: rgb(10, 7, 44);
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    background-color: rgb(18, 18, 92);
+}
+
+
+nav .left {
+    font-size: 35px; /* Increase the font size */
+    font-weight: bold; /* Make the text bold */
+    color: rgb(224, 220, 210); /* White text color */
+}
+
+
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+nav ul li{
+    list-style: none;
+    margin: 0 23px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover{
+    color: yellow;
+    font-size: 1.04rem;
+}
+
+main hr{
+    border: 0;
+    background-color: #9c97f1;
+    height: 1.2px;
+    margin: 60px 84px; 
+}
+
+.left{
+    font-size: 1.5rem;
+}
+
+.firstSection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 210px 0;
+}
+
+.firstSection > div{
+  width: 30%;
+}
+
+.intro-image {
+    width: 300px; /* Adjust the width as needed */
+    border-radius: 100%; /* Make it circular */
+    margin-bottom: 40px; /* Add some space below the image */
+}
+
+
+.leftSection{
+    font-size: 3rem;
+}
+
+.leftSection .buttons{
+    padding: 50px 0px;
+}
+
+.leftSection .btn{
+    padding: 12px;
+    background: #2e2a77;
+    color: white;
+    border: 2px solid white;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.rightSection img{
+    width: 80%;
+    margin: 20px 0;
+}
+
+.purple{
+    color: rgb(168, 115, 218);
+}
+
+.text-gray{
+    color: whitesmoke;
+    font-size: large;
+}
+
+#element{
+    color: rgb(168, 115, 218);
+}
+.secondSection{
+    max-width: 80vw;
+    margin: auto;
+    height: 80vh;
+}
+.secondSection h1{
+    font-size: 2rem;
+}
+
+.secondSection .box{
+    background-color: white;
+    width: 70vw;
+    height: 2px;
+    margin: 56px 0;
+    display: flex;
+}
+
+.secondSection .Vertical{
+    height: 93px;
+    width: 1px;
+    background-color: white;
+    margin: 0 150px;
+}
+
+.image-top{
+    width: 23px;
+    position: relative;
+    top: -32px;
+    left: -9px;
+}
+
+.Vertical-title{
+   position: relative;
+   top: 75px;
+   width: 150px;
+   font-size: 25px;
+}
+
+.Vertical-desc{
+   position: relative;
+   top: 86px;
+   color: aliceblue;
+   width: 150px;
+   font-size: 15px;
+}
+
+.footer{
+    background-color: rgb(28, 12, 70);
+    height: 85px;
+
+}
+
+.footer{
+    display: flex;
+    padding: 23px 122px;
+    justify-content: space-evenly;
+}
+.footer ul{
+    list-style: none;
+}
+
+.footer > div{
+    width: 200;
+}
+
+footer .footer-rights{
+    text-align: center;
+    color: rgb(207, 218, 226);
+    padding: 12px 0px;
+
+}
+
+footer .footer-first{
+    margin: 34px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">Om's  Portfolio</div>
+            <div class="right"></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="firstSection">
+            <div class="leftSection">
+                <img src="image.png.jpg" alt="Om's Image" class="intro-image">
+                <div>Hi My name is <span class="purple">Om</span></div>
+                <div>and I am a Passionate</div>
+                <span id="element"></span>
+                <div class="buttons">
+                    <button class="btn" onclick="downloadResume()">Download Resume</button>
+                    <button class="btn" onclick="visitLinkedIn()">Visit LinkedIn</button>
+                </div>
+            </div>
+            
+            <div class="rightSection">
+                <img src="om.png" alt="">
+            </div>
+        </section>
+        
+        <script>
+            function downloadResume() {
+                // Replace 'resume.pdf' with the actual path to your resume file
+                window.location.href = 'Raj new 1.pdf';
+            }
+        
+            function visitLinkedIn() {
+                // Replace this URL with your actual LinkedIn profile link
+                window.open('https://www.linkedin.com/in/om-nigam//', '_blank');
+            }
+        </script>
+        
+<hr>
+        <section class="secondSection">
+            <span class="text-gray">What I have Done So far</span>
+            <h1>Work Experience</h1>
+
+            <div class="box">
+                <div class="Vertical">
+                    <img class="image-top" src="Developer.png" alt="">
+                    <div class="Vertical-title">
+                        Web Developer,
+                    </div>
+                    <div class="Vertical-desc">
+                        "As a web developer, I have built and maintained dynamic websites, utilizing HTML, CSS, JavaScript, and modern frameworks to deliver user-friendly and responsive web applications that meet client requirements and industry standards."
+                    </div>
+                </div>
+                <div class="Vertical">
+                    <img class="image-top" src="Developer.png" alt="">
+                    <div class="Vertical-title">
+                        AI Developer,
+                    </div>
+                    <div class="Vertical-desc">
+                        "I developed a fully functional AI assistant using Python, capable of performing tasks such as speech recognition, natural language processing, and automation of routine tasks, enhancing productivity and user interaction."
+                    </div>
+                </div>
+                <div class="Vertical">
+                    <img class="image-top" src="Developer.png" alt="">
+                    <div class="Vertical-title">
+                        Graphics Developer,
+                    </div>
+                    <div class="Vertical-desc">
+                        "As a graphic developer, I designed and implemented a user-friendly GUI for my Jarvis AI assistant, enhancing the visual appeal and usability of the application, allowing for seamless interaction and task management."
+                    </div>
+                </div>
+                <div class="Vertical">
+                    <img class="image-top" src="Developer.png" alt="">
+                    <div class="Vertical-title">
+                        Video Editor,
+                    </div>
+                    <div class="Vertical-desc">
+                        "As a video editor, I have crafted compelling video content by applying advanced editing techniques, including color grading, audio synchronization, and motion graphics, to produce engaging and polished final products that resonate with audiences."
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Om's Developer Portfolio</h3>
+            </div>
+            <div class="footer-second">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-third">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-fourth">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-rights">
+            Copyright &#169; Om'sPortfolio.com | All Right reserved
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        var typed = new Typed('#element', {
+          strings: ['Web Developer', 'Graphics Designer', 'Web Designer' , 'Video Editor' , 'AI Developer'],
+          typeSpeed: 50,
+          loop: true,
+        });
+      </script>
+</body>
+</html>
