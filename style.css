@@ -1,0 +1,458 @@
+/* style.css - Responsive Styles for All Pages */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    background: transparent; /* Important for Vanta */
+}
+
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    background-color: rgb(18, 18, 92);
+    padding: 0 20px;
+    position: relative;
+}
+
+nav .left {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(224, 220, 210);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: yellow;
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* Home Page Specific */
+.firstSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+    text-align: center;
+}
+
+.intro-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+    border: 5px solid rgb(18, 18, 92);
+}
+
+.leftSection {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    background: #2e2a77;
+    color: white;
+    border: 2px solid white;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.btn:hover {
+    background: #3d38a0;
+    transform: translateY(-2px);
+}
+
+.rightSection img {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 30px;
+}
+
+.purple {
+    color: rgb(168, 115, 218);
+}
+
+/* Work Experience Section */
+.secondSection {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.secondSection h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.Vertical {
+    background-color: rgba(18, 18, 92, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.Vertical-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: rgb(168, 115, 218);
+}
+
+.Vertical-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.image-top {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+/* About Page */
+main p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contact Page */
+.contact-info {
+    background-color: rgb(18, 18, 92);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 600px;
+    text-align: left;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gray-text {
+    color: rgb(78, 177, 33);
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.gray-text:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+
+/* Projects Page */
+.project {
+    background-color: rgb(18, 18, 92);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: rgb(168, 115, 218);
+}
+
+.project p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: rgb(28, 12, 70);
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.footer > div {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: rgb(207, 218, 226);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: yellow;
+}
+
+.footer-rights {
+    text-align: center;
+    color: rgb(207, 218, 226);
+    padding: 20px 0;
+    background-color: rgb(5, 5, 146);
+    margin-top: 20px;
+}
+
+/* Typed.js Animation */
+#element {
+    color: rgb(168, 115, 218);
+    font-size: 2rem;
+    display: block;
+    margin: 10px 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+    main {
+        max-width: 95vw;
+    }
+}
+
+@media (max-width: 992px) {
+    .firstSection {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .leftSection {
+        font-size: 1.8rem;
+    }
+    
+    main h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: rgb(18, 18, 92);
+        flex-direction: column;
+        padding: 20px 0;
+        z-index: 1000;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* Main Content */
+    main {
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+    
+    main h1 {
+        font-size: 2rem;
+    }
+    
+    .leftSection {
+        font-size: 1.6rem;
+    }
+    
+    .btn {
+        min-width: 150px;
+        padding: 10px 20px;
+    }
+    
+    .intro-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer > div {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .left {
+        font-size: 1.2rem;
+    }
+    
+    main h1 {
+        font-size: 1.8rem;
+    }
+    
+    .leftSection {
+        font-size: 1.4rem;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-info {
+        padding: 20px;
+    }
+    
+    .contact-info p {
+        font-size: 1rem;
+    }
+    
+    .project {
+        padding: 20px;
+    }
+    
+    .project h2 {
+        font-size: 1.5rem;
+    }
+    
+    #element {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animation for Typed.js */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* VANTA FULL PAGE BACKGROUND */
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+main, header, footer {
+    position: relative;
+    z-index: 1;
+}
