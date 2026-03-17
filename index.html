@@ -1,176 +1,661 @@
-
-
-<!-- https://www.vantajs.com/?effect=halo -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Om - Developer Portfolio</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
-</head>
-<body id="vanta-bg">
-    <header>
-        <nav>
-            <div class="left">Om's Portfolio</div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact Me</a></li>
-            </ul>
-        </nav>
-    </header>
+    
+    <style>
+        /* Animated Background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: white;
+        }
+        
+        /* Animated Gradient Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            z-index: -2;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Overlay to make content readable */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        
+        /* Navigation styles - Same as other pages */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    <main>
-        <section class="firstSection fade-in">
-            <div class="leftSection">
-                <img src="image.png.jpg" alt="Om's Image" class="intro-image">
-                <div>Hi My name is <span class="purple">Om</span></div>
-                <div>and I am a Passionate</div>
-                <span id="element"></span>
-                <div class="buttons">
-                    <button class="btn" onclick="downloadResume()">Download Resume</button>
-                    <button class="btn" onclick="visitLinkedIn()">Visit LinkedIn</button>
-                </div>
-            </div>
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #ee7752, #e73c7e);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: #e73c7e;
+            text-shadow: 0 0 10px rgba(231, 60, 126, 0.5);
+        }
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradient 5s ease infinite;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Ensure content stands out */
+        header, main, footer {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Glass morphism effect for cards/sections */
+        .firstSection, .secondSection, .box, .Vertical, footer {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .firstSection {
+            padding: 30px;
+            margin: 20px;
+        }
+        
+        .secondSection {
+            padding: 30px;
+            margin: 20px;
+        }
+        
+        .secondSection h1 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradient 5s ease infinite;
+        }
+        
+        .box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+        }
+        
+        .Vertical {
+            width: 220px;
+            padding: 25px;
+            text-align: center;
+            margin: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .Vertical:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(231, 60, 126, 0.3);
+            border: 1px solid rgba(231, 60, 126, 0.3);
+        }
+        
+        .image-top {
+            width: 50px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+        
+        .Vertical:hover .image-top {
+            transform: scale(1.1);
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(231, 60, 126, 0.5));
+        }
+        
+        .Vertical-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #e73c7e;
+        }
+        
+        .Vertical-desc {
+            font-size: 0.9rem;
+            color: #ddd;
+            line-height: 1.5;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+
+        /* First Section Styles */
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 80px 0;
+            padding: 50px;
+        }
+
+        .leftSection {
+            font-size: 2.5rem;
+            line-height: 1.5;
+        }
+
+        .leftSection .purple {
+            color: #e73c7e;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(231, 60, 126, 0.5);
+        }
+
+        .leftSection .intro-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #e73c7e;
+            box-shadow: 0 0 30px rgba(231, 60, 126, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 30px rgba(231, 60, 126, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(231, 60, 126, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(231, 60, 126, 0.3);
+            }
+        }
+
+        .rightSection img {
+            width: 400px;
+            filter: drop-shadow(0 0 30px rgba(35, 166, 213, 0.5));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        #element {
+            color: #23a6d5;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(35, 166, 213, 0.5);
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #ee7752, #e73c7e);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(231, 60, 126, 0.4);
+            background: linear-gradient(45deg, #e73c7e, #ee7752);
+        }
+
+        /* Footer Styles */
+        .footer {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 40px;
+            flex-wrap: wrap;
+            color: white;
+        }
+
+        .footer > div {
+            margin: 20px;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin: 10px 0;
+        }
+
+        .footer ul li a {
+            text-decoration: none;
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: #e73c7e;
+        }
+
+        .footer-first h3 {
+            background: linear-gradient(45deg, #ee7752, #e73c7e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.2rem;
+        }
+
+        .footer-rights {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            nav {
+                padding: 0 20px;
+                position: relative;
+            }
             
-            <div class="rightSection">
-                <img src="om.png" alt="Development Illustration">
-            </div>
-        </section>
-
-        <section class="secondSection fade-in">
-            <h1>Work Experience</h1>
-            <div class="box">
-                <div class="Vertical">
-                    <img class="image-top" src="Developer.png" alt="Web Developer">
-                    <div class="Vertical-title">Web Developer</div>
-                    <div class="Vertical-desc">
-                        Built and maintained dynamic websites using HTML, CSS, JavaScript, and modern frameworks to deliver user-friendly and responsive web applications.
-                    </div>
-                </div>
-                <div class="Vertical">
-                    <img class="image-top" src="Developer.png" alt="AI Developer">
-                    <div class="Vertical-title">AI Developer</div>
-                    <div class="Vertical-desc">
-                        Developed a fully functional AI assistant using Python with speech recognition, natural language processing, and automation capabilities.
-                    </div>
-                </div>
-                <div class="Vertical">
-                    <img class="image-top" src="Developer.png" alt="Graphics Developer">
-                    <div class="Vertical-title">Graphics Developer</div>
-                    <div class="Vertical-desc">
-                        Designed and implemented a user-friendly GUI for my Jarvis AI assistant, enhancing visual appeal and usability for seamless interaction.
-                    </div>
-                </div>
-                <div class="Vertical">
-                    <img class="image-top" src="Developer.png" alt="Video Editor">
-                    <div class="Vertical-title">Video Editor</div>
-                    <div class="Vertical-desc">
-                        Crafted compelling video content using advanced editing techniques including color grading, audio synchronization, and motion graphics.
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer">
-            <div class="footer-first">
-                <h3>Om's Developer Portfolio</h3>
-            </div>
-            <div class="footer-second">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                </ul>
-            </div>
-            <div class="footer-third">
-                <ul>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="mailto:omnigam115@gmail.com">Email</a></li>
-                    <li><a href="https://github.com/omnigam115">GitHub</a></li>
-                </ul>
-            </div>
-            <div class="footer-fourth">
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/om-nigam/">LinkedIn</a></li>
-                    <li>Phone: 9918841427</li>
-                    <li>Location: Punjab, India</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-rights">
-            Copyright &#169; Om's Portfolio | All Rights Reserved
-        </div>
-    </footer>
-
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-        // Mobile menu toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
-        
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-        
-        // Close menu when clicking on a link
-        document.querySelectorAll('#nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
-        
-        // Typed.js animation
-        var typed = new Typed('#element', {
-            strings: ['Web Developer', 'Graphics Designer', 'Web Designer', 'Video Editor', 'AI Developer'],
-            typeSpeed: 50,
-            backSpeed: 30,
-            loop: true
-        });
-        
-        function downloadResume() {
-            window.location.href = 'Raj new 1.pdf';
+            .menu-toggle {
+                display: flex;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                z-index: 100;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .firstSection {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .leftSection {
+                font-size: 1.8rem;
+            }
+            
+            .rightSection img {
+                width: 250px;
+            }
+            
+            .box {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .Vertical {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .btn {
+                margin: 10px;
+            }
         }
-        
-        function visitLinkedIn() {
-            window.open('https://www.linkedin.com/in/om-nigam/', '_blank');
-        }
-    </script>
-    <!-- Three.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
-<!-- Vanta -->
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+        /* Menu Toggle Animation */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Animated Background -->
+<div class="animated-bg"></div>
+<div class="overlay"></div>
+
+<header>
+    <nav>
+        <div class="left">Om's Portfolio</div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificate.html">Certificates</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<main>
+
+<section class="firstSection fade-in">
+
+<div class="leftSection">
+
+<img src="image.png.jpg" alt="Om's Image" class="intro-image">
+
+<div>Hi My name is <span class="purple">Om</span></div>
+
+<div>and I am a Passionate</div>
+
+<span id="element"></span>
+
+<div class="buttons">
+<button class="btn" onclick="downloadResume()">Download Resume</button>
+<button class="btn" onclick="visitLinkedIn()">Visit LinkedIn</button>
+</div>
+
+</div>
+
+
+<div class="rightSection">
+<img src="om.png" alt="Development Illustration">
+</div>
+
+</section>
+
+
+
+<section class="secondSection fade-in">
+
+<h1>Work Experience</h1>
+
+<div class="box">
+
+<div class="Vertical">
+<img class="image-top" src="Developer.png" alt="Web Developer">
+<div class="Vertical-title">Web Developer</div>
+<div class="Vertical-desc">
+Built and maintained dynamic websites using HTML, CSS, JavaScript, and modern frameworks to deliver user-friendly and responsive web applications.
+</div>
+</div>
+
+<div class="Vertical">
+<img class="image-top" src="Developer.png" alt="AI Developer">
+<div class="Vertical-title">AI Developer</div>
+<div class="Vertical-desc">
+Developed a fully functional AI assistant using Python with speech recognition, natural language processing, and automation capabilities.
+</div>
+</div>
+
+<div class="Vertical">
+<img class="image-top" src="Developer.png" alt="Graphics Developer">
+<div class="Vertical-title">Graphics Developer</div>
+<div class="Vertical-desc">
+Designed and implemented a user-friendly GUI for my Jarvis AI assistant, enhancing visual appeal and usability for seamless interaction.
+</div>
+</div>
+
+<div class="Vertical">
+<img class="image-top" src="Developer.png" alt="Video Editor">
+<div class="Vertical-title">Video Editor</div>
+<div class="Vertical-desc">
+Crafted compelling video content using advanced editing techniques including color grading, audio synchronization, and motion graphics.
+</div>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+<div class="footer">
+
+<div class="footer-first">
+<h3>Om's Developer Portfolio</h3>
+</div>
+
+<div class="footer-second">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="certificate.html">Certificates</a></li>
+</ul>
+</div>
+
+<div class="footer-third">
+<ul>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="mailto:omnigam115@gmail.com">Email</a></li>
+<li><a href="https://github.com/omnigam115">GitHub</a></li>
+</ul>
+</div>
+
+<div class="footer-fourth">
+<ul>
+<li><a href="https://www.linkedin.com/in/om-nigam/">LinkedIn</a></li>
+<li>Phone: 9918841427</li>
+<li>Location: Punjab, India</li>
+</ul>
+</div>
+
+</div>
+
+<div class="footer-rights">
+Copyright &#169; Om's Portfolio | All Rights Reserved
+</div>
+
+</footer>
+
+
+
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 <script>
-VANTA.NET({
-  el: "#vanta-bg",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00,
-  color: 0xa855f7,
-  backgroundColor: 0x0a072c
+// Mobile menu toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const navMenu = document.getElementById('nav-menu');
+
+mobileMenu.addEventListener('click', () => {
+navMenu.classList.toggle('active');
+mobileMenu.classList.toggle('active');
 });
+
+// Close menu when clicking on link
+document.querySelectorAll('#nav-menu a').forEach(link => {
+link.addEventListener('click', () => {
+navMenu.classList.remove('active');
+mobileMenu.classList.remove('active');
+});
+});
+
+// Typed.js animation
+var typed = new Typed('#element', {
+strings: ['Web Developer', 'Graphics Designer', 'Web Designer', 'Video Editor', 'AI Developer'],
+typeSpeed: 50,
+backSpeed: 30,
+loop: true
+});
+
+function downloadResume() {
+window.location.href = 'Raj new 1.pdf';
+}
+
+function visitLinkedIn() {
+window.open('https://www.linkedin.com/in/om-nigam/', '_blank');
+}
+
+// Add fade-in animation on scroll
+const fadeElements = document.querySelectorAll('.fade-in');
+
+const fadeInOnScroll = () => {
+fadeElements.forEach(element => {
+const elementTop = element.getBoundingClientRect().top;
+const elementBottom = element.getBoundingClientRect().bottom;
+const windowHeight = window.innerHeight;
+
+if (elementTop < windowHeight - 100 && elementBottom > 0) {
+element.classList.add('visible');
+}
+});
+};
+
+window.addEventListener('scroll', fadeInOnScroll);
+window.addEventListener('load', fadeInOnScroll);
 </script>
 
 </body>
