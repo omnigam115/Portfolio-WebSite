@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Env files — contain secrets, never commit these
+.env
+.env.local
+.env.*.local
+
+# .env.example is safe to commit (no real key inside)
+!.env.example
